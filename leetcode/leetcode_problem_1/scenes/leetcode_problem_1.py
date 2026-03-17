@@ -116,14 +116,14 @@ class Scene0(Scene):
 
 
 		# Header animation
-		self.wait()
+		self.wait(5)
 		self.play(
 			Succession(
 				Write(title_tex),
 				GrowFromCenter(underline)
 			)
 		)
-		self.wait()
+		self.wait(5)
 
 		# Body copy
 
@@ -147,45 +147,45 @@ class Scene0(Scene):
 		self.play(
 			Write(sen_tex_1_copy)
 		)
-		self.wait()
+		self.wait(5)
 
 		indices_1 = sen_tex_1.get_tex_indices_by_color(PURE_GREEN)
 
 		
 
 
-		self.wait()
+		self.wait(5)
 		self.play(
 			sen_tex_1_copy[indices_1[0][0]:indices_1[0][1]].animate.set_color(PURE_GREEN)
 		)
-		self.wait()
+		self.wait(5)
 
-		self.wait()
+		self.wait(5)
 		self.play(
 			sen_tex_1_copy[indices_1[0][0]:indices_1[0][1]].animate.set_color(WHITE)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_1_copy[indices_1[0][1]:].animate.set_color(PURE_GREEN)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_1_copy[indices_1[0][1]:].animate.set_color(WHITE)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		# Page animation
 
-		self.wait()
+		self.wait(5)
 		self.play(
 			page.animate.shift((0 - body_copy[1].get_center()[1]) * UP)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		# Sentence 2 animation
@@ -193,7 +193,7 @@ class Scene0(Scene):
 		self.play(
 			Write(sen_tex_2_copy.set_opacity(1))
 		)
-		self.wait()
+		self.wait(5)
 
 
 
@@ -203,34 +203,34 @@ class Scene0(Scene):
 		self.play(
 			sen_tex_2_copy[indices_2[0][0]:indices_2[0][1]].animate.set_color(PURE_GREEN)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_2_copy[indices_2[0][0]:indices_2[0][1]].animate.set_color(WHITE)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_2_copy[indices_2[0][1]:].animate.set_color(PURE_GREEN)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_2_copy[indices_2[0][1]:].animate.set_color(WHITE)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		# Page animation
 
-		self.wait()
+		self.wait(5)
 		self.play(
 			page.animate.shift((0 - body_copy[2].get_center()[1]) * UP)
 		)
-		self.wait()
+		self.wait(5)
 
 
 		# Sentence animation
@@ -238,13 +238,13 @@ class Scene0(Scene):
 		self.play(
 			Write(sen_tex_3_copy.set_opacity(1))
 		)
-		self.wait()
+		self.wait(5)
 
 
 		self.play(
 			sen_tex_3_copy.animate.set_color(PURE_GREEN)
 		)
-		self.wait()
+		self.wait(5)
 
 
 
