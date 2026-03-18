@@ -257,6 +257,10 @@ class Scene1(Scene):
 		my_tex_template = TexTemplate()
 		my_tex_template.add_to_preamble(r"\usepackage{xcolor}")
 		my_tex_template.add_to_preamble(r"\definecolor{PURE_GREEN}{HTML}{00FF00}")
+		my_tex_template.add_to_preamble(r"\definecolor{PURE_RED}{HTML}{FF0000}")
+		my_tex_template.add_to_preamble(r"\definecolor{YELLOW}{HTML}{FFFF00}")
+		my_tex_template.add_to_preamble(r"\definecolor{PURE_BLUE}{HTML}{0000FF}")
+
 
 		# Title
 
@@ -294,7 +298,7 @@ class Scene1(Scene):
 
 		# Sentence 1
 
-		sen_1_string = "\\textcolor{PURE_GREEN}{Input}: nums = \\textcolor{PURE_GREEN}{[3, 2, 4]}, target = 6"
+		sen_1_string = "Input: \\textcolor{YELLOW}{nums = [3, 2, 4],} \\textcolor{PURE_GREEN}{target = 6}"
 
 
 		sen_tex_1 = MyTex(
@@ -313,7 +317,7 @@ class Scene1(Scene):
 
 		# Sentence 2
 
-		sen_2_string = "\\textcolor{PURE_GREEN}{Output}: [1, 2]"
+		sen_2_string = "Output: [1, 2]"
 
 
 		sen_tex_2 = MyTex(
@@ -353,7 +357,67 @@ class Scene1(Scene):
 		page = VGroup(header, body_copy)
 
 
-		self.add(page)
+		# self.add(body)
+
+		# Header animation
+
+		self.wait()
+		self.play(
+			Succession(
+				Write(title_tex),
+				GrowFromCenter(underline)
+			)
+		)
+		self.wait()
+
+
+		# Sentence 1 animation
+		indices_1 = sen_tex_1.get_tex_indices_by_color(PURE_YELLOW)
+		indices_2 = sen_tex_1.get_tex_indices_by_color(PURE_GREEN)
+		
+		self.play(
+			Write(sen_tex_1_copy)
+		)
+
+		self.wait()
+
+		self.play(
+			sen_tex_1_copy[indices_1[0][0]:indices_1[0][-1]].animate.set_color(PURE_GREEN)
+		)
+		self.wait()
+
+		self.play(
+			sen_tex_1_copy[indices_1[0][0]:indices_1[0][-1]].animate.set_color(WHITE)
+		)
+
+		self.wait()
+
+		self.play(
+			sen_tex_1_copy[indices_2[0][0]:indices_2[0][-1]].animate.set_color(PURE_GREEN)
+		)
+		self.wait()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Scene2(Scene):
+
+	def construct(self):
+		pass
 
 
 
